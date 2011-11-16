@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from django import forms
-from tokeninput.widgets import TokenWidget
+from djtokeninput.widgets import TokenWidget
 
 
 class TokenField(forms.ModelMultipleChoiceField):

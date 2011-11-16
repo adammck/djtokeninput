@@ -16,7 +16,7 @@ DATABASES = {
 
 INSTALLED_APPS = (
   'django.contrib.staticfiles',
-  "tokeninput",
+  "djtokeninput",
   "app"
 )
 

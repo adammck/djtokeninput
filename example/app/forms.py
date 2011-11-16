@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from django import forms
-from tokeninput.fields import TokenField
+from djtokeninput.fields import TokenField
 from app import models
 
 

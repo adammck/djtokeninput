@@ -13,7 +13,7 @@ class TokenWidget(forms.TextInput):
 
     js = (
       "js/jquery-tokeninput-1.6.0-min.js",
-      "js/token-widget.js"
+      "js/djtokeninput.js"
     )
 
   def render(self, name, value, attrs=None):
@@ -23,7 +23,7 @@ class TokenWidget(forms.TextInput):
       attrs["data-search-url"] = reverse(self.search_view)
 
     attrs["class"] = self._class_name(
-      attrs.get("class"), "token-input")
+      attrs.get("class"), "tokeninput")
 
     if value is not None:
       attrs["data-prepopulate"] = json.dumps([
