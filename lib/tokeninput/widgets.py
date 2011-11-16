@@ -7,6 +7,10 @@ from django.core.urlresolvers import reverse
 
 class TokenWidget(forms.TextInput):
   class Media:
+    css = {
+      "all": ("css/token-input.css",)
+    }
+
     js = (
       "js/jquery-tokeninput-1.6.0-min.js",
       "js/token-widget.js"
