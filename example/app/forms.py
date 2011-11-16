@@ -8,4 +8,4 @@ from app import models
 class ExampleForm(forms.Form):
   title = forms.CharField()
   desc = forms.CharField(widget=forms.Textarea)
-  tags = TokenField(models.Tag, "search_tags", required=False)
+  tags = TokenField(models.Tag, required=False)

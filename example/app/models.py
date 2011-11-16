@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from django import forms
 from django.db import models
 
 
