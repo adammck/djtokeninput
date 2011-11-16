@@ -1,2 +1,3 @@
 *.pyc
 .coverage
+example/db.sqlite3

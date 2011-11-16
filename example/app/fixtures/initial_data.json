@@ -1,0 +1,37 @@
+[
+  {
+    "pk": 1,
+    "model": "app.tag",
+    "fields": {
+      "name": "Alpha"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "app.tag",
+    "fields": {
+      "name": "Beta"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "app.tag",
+    "fields": {
+      "name": "Gamma"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "app.tag",
+    "fields": {
+      "name": "Delta"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "app.tag",
+    "fields": {
+      "name": "Epsilon"
+    }
+  }
+]
