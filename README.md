@@ -17,9 +17,32 @@ Add it to your `INSTALLED_APPS`:
 
 ```python
 INSTALLED_APPS = (
+  "django.contrib.contenttypes",
   "djtokeninput",
   # ...
 )
+```
+
+Add the generic search view to your `urlpatterns`:
+
+```python
+urlpatterns = patterns("",
+  # ...
+  url(r"^djtokeninput/", include("djtokeninput.urls")
+)
+```
+
+Add a `search` method to your model:
+
+```python
+from django.db import models
+
+class Tag(models.Model):
+  name = models.CharField(max_length=100)
+
+  @classmethod
+  def search(cls, query):
+    return cls.objects.filter(name__icontains=query)
 ```
 
 Add a `TokenField` to your form:
