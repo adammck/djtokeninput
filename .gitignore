@@ -1,3 +1,5 @@
 *.pyc
-.coverage
+build
+dist
+lib/*.egg-info
 example/db.sqlite3
