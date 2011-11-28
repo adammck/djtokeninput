@@ -28,7 +28,7 @@ Add the generic search view to your `urlpatterns`:
 ```python
 urlpatterns = patterns("",
   # ...
-  url(r"^djtokeninput/", include("djtokeninput.urls")
+  url(r"^djtokeninput/", include("djtokeninput.urls"))
 )
 ```
 
