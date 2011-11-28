@@ -72,9 +72,9 @@ Finally, add the JS and CSS assets to your template:
 Form Media
 ----------
 
-You can also use (Form Media) [https://docs.djangoproject.com/en/dev/topics/forms/media] if you're into that. Just include `{{ form.media }}` in your `<head>` as usual.
+You can also use [Form Media] (https://docs.djangoproject.com/en/dev/topics/forms/media) if you're into that. Just include `{{ form.media }}` in your `<head>` as usual.
 
-Personally, I prefer to explicity include all of my assets in my base template, and pack them with [Django Compressor] (https://github.com/jezdez/django_compressor).
+I prefer to explicity include all of my assets in my base template, and pack them with [Django Compressor] (https://github.com/jezdez/django_compressor).
 
 
 Requirements
