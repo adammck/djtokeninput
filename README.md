@@ -77,6 +77,22 @@ You can also use [Form Media] (https://docs.djangoproject.com/en/dev/topics/form
 I prefer to explicity include all of my assets in my base template, and pack them with [Django Compressor] (https://github.com/jezdez/django_compressor).
 
 
+Configuration
+-------------
+
+You can configure the Tokeninput by passing a `TokenWidget` instance to `TokenField`:
+
+```python
+tags = TokenField(models.Tag, required=False,
+  widget=TokenWidget(
+    hint_text="Search for tags",
+    prevent_duplicates=True,
+    animate_dropdown=False))
+```
+
+The [jQuery Tokeninput docs] (http://loopj.com/jquery-tokeninput/#configuration) contains the list of available settings.
+
+
 Requirements
 ------------
 
