@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
+import re
 import json
+import copy
 from django import forms
 from django.core.urlresolvers import reverse
 
@@ -16,12 +18,34 @@ class TokenWidget(forms.TextInput):
       "js/djtokeninput.js"
     )
 
+  def __init__(self, attrs=None, **kwargs):
+    super(TokenWidget, self).__init__(attrs)
+    self.settings = self._normalize(kwargs)
+
+  @classmethod
+  def _normalize(cls, settings):
+    """
+    Return a copy of `settings` (a dict) with any underscored keys replaced
+    with camelCased keys. Useful for passing Python-style dicts to Tokeninput,
+    which expects strange camelCase dicts.
+    """
+
+    return dict([
+      (cls._camelcase(key), val)
+      for key, val in settings.items()
+    ])
+
+  @staticmethod
+  def _camelcase(s):
+    return re.sub("_(.)", lambda m: m.group(1).capitalize(), s)
+
   @staticmethod
   def _class_name(value):
     return value.replace(" ", "-")
 
   def render(self, name, value, attrs=None):
     flat_value = ",".join(map(unicode, value or []))
+    settings = copy.copy(self.settings)
 
     url_name = getattr(self, "search_url", "djtokeninput_search")
     url_args = (self.model._meta.app_label, self.model._meta.object_name.lower())
@@ -31,11 +55,12 @@ class TokenWidget(forms.TextInput):
       attrs.get("class"), "tokeninput")
 
     if value is not None:
-      attrs["data-prepopulate"] = json.dumps([
+      settings["prePopulate"] = [
         {"id": pk, "name": unicode(self.choices.queryset.get(pk=pk))}
         for pk in value
-      ])
+      ]
 
+    attrs["data-settings"] = json.dumps(settings)
     return super(TokenWidget, self).render(name, flat_value, attrs)
 
   @staticmethod
