@@ -71,5 +71,14 @@ class TokenWidget(forms.TextInput):
     values = data.get(name, "").split(",")
     return self.clean_keys(values)
 
+  def clean_key(self, value):
+    try:
+      return int(value)
+
+    except ValueError:
+      if hasattr(self.model, "create_via_tokeninput"):
+        model = self.model.create_via_tokeninput(value)
+        return model.pk
+
   def clean_keys(self, values):
-    return [int(x) for x in values if x.strip().isdigit()]
+    return filter(None, map(self.clean_key, values))

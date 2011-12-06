@@ -13,6 +13,10 @@ class Tag(models.Model):
   def search(cls, query):
     return cls.objects.filter(name__icontains=query)
 
+  @classmethod
+  def create_via_tokeninput(cls, value):
+    return cls.objects.create(name=value.strip())
+
 
 class Post(models.Model):
   title = models.CharField(max_length=100)
