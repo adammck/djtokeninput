@@ -77,7 +77,12 @@ class TokenWidget(forms.TextInput):
     return " ".join(filter(None, [class_name, extra]))
 
   def value_from_datadict(self, data, files, name):
-    values = data.get(name, "").split(",")
+    flat_value = data.get(name, None)
+
+    if not flat_value:
+      return []
+
+    values = flat_value.split(",")
     return self.clean_keys(values)
 
   def clean_key(self, value):
