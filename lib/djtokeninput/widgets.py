@@ -4,6 +4,7 @@ import re
 import json
 import copy
 from django import forms
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 
 
@@ -55,10 +56,18 @@ class TokenWidget(forms.TextInput):
       attrs.get("class"), "tokeninput")
 
     if value is not None:
-      settings["prePopulate"] = [
-        {"id": pk, "name": unicode(self.choices.queryset.get(pk=pk))}
-        for pk in value
-      ]
+      prepop = []
+
+      for pk in value:
+        try:
+          model = self.choices.queryset.get(pk=pk)
+          prepop.append({ "id": pk, "name": unicode(model) })
+
+        # Silently ignore invalid keys.
+        except ObjectDoesNotExist:
+          pass
+
+      settings["prePopulate"] = prepop
 
     attrs["data-settings"] = json.dumps(settings)
     return super(TokenWidget, self).render(name, flat_value, attrs)
