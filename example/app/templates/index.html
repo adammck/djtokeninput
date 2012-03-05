@@ -5,8 +5,43 @@
   <head>
     <title>jQuery Tokeninput for Django Demo</title>
     <meta charset="utf-8">
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.js"></script>
     {{ form.media }}
+
+    <style>
+      body {
+        font: 9pt sans-serif;
+        background: #ddd;
+        padding: 1em;
+      }
+
+      p {
+        margin: 0 0 1em 0;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
+
+      input, textarea, ul.token-input-list {
+        border: 1px solid #aaa;
+        background: #fffff8;
+      }
+
+      input, textarea {
+        font: inherit;
+        padding: 1em;
+      }
+
+      span.helptext {
+        display: block;
+        padding: 0.5em 0 0 0.5em;
+        color: #666;
+      }
+    </style>
   </head>
   <body>
 
