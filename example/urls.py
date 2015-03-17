@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, url, include
+
+
+
 
 urlpatterns = patterns("",
   url(r"^$", "example.app.views.home", name="home"),
