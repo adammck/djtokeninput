@@ -1,7 +1,7 @@
 jQuery Tokeninput for Django
 ============================
 
-This is reusable Django app which provides `TokenField` as a drop-in replacement for `ModelMultipleChoiceField`. It wraps the excellent [jQuery Tokeninput] (https://github.com/loopj/jquery-tokeninput) plugin, which is by [James Smith] (http://loopj.com).
+This is reusable Django app which provides `TokenField` as a drop-in replacement for `ModelMultipleChoiceField`. It wraps the excellent [jQuery Tokeninput](https://github.com/loopj/jquery-tokeninput) plugin, which is by [James Smith](http://loopj.com).
 
 
 Quick Start
@@ -72,9 +72,9 @@ Finally, add the JS and CSS assets to your template:
 Form Media
 ----------
 
-You can also use [Form Media] (https://docs.djangoproject.com/en/dev/topics/forms/media) if you're into that. Just include `{{ form.media }}` in your `<head>` as usual.
+You can also use [Form Media](https://docs.djangoproject.com/en/dev/topics/forms/media) if you're into that. Just include `{{ form.media }}` in your `<head>` as usual.
 
-I prefer to explicity include all of my assets in my base template, and pack them with [Django Compressor] (https://github.com/jezdez/django_compressor).
+I prefer to explicity include all of my assets in my base template, and pack them with [Django Compressor](https://github.com/jezdez/django_compressor).
 
 
 Configuration
@@ -90,7 +90,7 @@ tags = TokenField(models.Tag, required=False,
     animate_dropdown=False))
 ```
 
-The [jQuery Tokeninput docs] (http://loopj.com/jquery-tokeninput/#configuration) contains the list of available settings.
+The [jQuery Tokeninput docs](http://loopj.com/jquery-tokeninput/#configuration) contains the list of available settings.
 
 
 Requirements
